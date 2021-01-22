@@ -25,7 +25,7 @@ def make():
 
   if not base.is_dir("openssl"):
     base.cmd("git", ["clone", "--depth=1", "--branch", "OpenSSL_1_1_1f",
-                     "https://github.com.cnpmjs.org/openssl/openssl.git"])
+                     "https://hub.fastgit.org/openssl/openssl.git"])
 
   os.chdir(base_dir + "/openssl")
 
