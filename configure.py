@@ -18,7 +18,7 @@ parser.add_option("--config", action="store", type="string", dest="config", defa
 parser.add_option("--qt-dir", action="store", type="string", dest="qt-dir", default="", help="defines qmake directory path. qmake can be found in qt-dir/compiler/bin directory")
 parser.add_option("--qt-dir-xp", action="store", type="string", dest="qt-dir-xp", default="", help="defines qmake directory path for Windows XP. qmake can be found in 'qt-dir/compiler/bin directory")
 parser.add_option("--compiler", action="store", type="string", dest="compiler", default="", help="defines compiler name. It is not recommended to use it as it's defined automatically (msvc2015, msvc2015_64, gcc, gcc_64, clang, clang_64, etc)")
-parser.add_option("--no-apps", action="store", type="string", dest="no-apps", default="0", help="disables building desktop apps that use qt")
+parser.add_option("--no-apps", action="store", type="string", dest="no-apps", default="1", help="disables building desktop apps that use qt")
 parser.add_option("--themesparams", action="store", type="string", dest="themesparams", default="", help="provides settings for generating presentation themes thumbnails")
 parser.add_option("--git-protocol", action="store", type="string", dest="git-protocol", default="https", help="can be used only if update is set to true - 'https', 'ssh'")
 parser.add_option("--branding", action="store", type="string", dest="branding", default="", help="provides branding path")

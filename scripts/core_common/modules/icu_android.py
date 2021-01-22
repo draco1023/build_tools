@@ -77,7 +77,8 @@ def make():
   os.chdir(current_dir)
 
   if not base.is_dir("icu"):
-    base.cmd("svn", ["export", "https://github.com/unicode-org/icu/tags/release-" + icu_major + "-" + icu_minor + "/icu4c", "./icu", "--non-interactive", "--trust-server-cert"])
+    base.cmd("svn", ["export", "https://github.com.cnpmjs.org/unicode-org/icu/tags/release-" +
+                     icu_major + "-" + icu_minor + "/icu4c", "./icu", "--non-interactive", "--trust-server-cert"])
     if ("linux" == base.host_platform()):
       base.replaceInFile(current_dir + "/icu/source/i18n/digitlst.cpp", "xlocale", "locale")
     #if ("mac" == base.host_platform()):
@@ -122,7 +123,8 @@ def make():
 
     # patch elf information
     os.chdir(current_dir + "/build")
-    base.cmd("git", ["clone", "https://github.com/NixOS/patchelf.git"])
+    base.cmd(
+        "git", ["clone", "https://github.com.cnpmjs.org/NixOS/patchelf.git"])
     os.chdir("./patchelf")
     base.cmd("./bootstrap.sh")
     base.cmd("./configure", ["--prefix=" + current_dir + "/build/patchelf/usr"])

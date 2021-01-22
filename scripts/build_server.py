@@ -16,7 +16,8 @@ def make():
   if("" != config.option("branding")):
     branding_dir = git_dir + '/' + config.option("branding") + '/server'
 
-  base.cmd_in_dir(server_dir, "npm", ["install"])
+  base.cmd_in_dir(server_dir, "npm", [
+                  "install", "--registry=https://registry.npm.taobao.org"])
   base.cmd_in_dir(server_dir, "grunt", ["--no-color", "-v"] + base.server_addons_param())
 
     #env variables
@@ -55,10 +56,12 @@ def make():
   base.cmd_in_dir(server_build_dir + "/SpellChecker", "pkg", [".", "-t", pkg_target, "-o", "spellchecker"])
 
   example_dir = base.get_script_dir() + "/../../document-server-integration/web/documentserver-example/nodejs"
-  base.cmd_in_dir(example_dir, "npm", ["install"])
+  base.cmd_in_dir(example_dir, "npm", [
+                  "install", "--registry=https://registry.npm.taobao.org"])
   base.cmd_in_dir(example_dir, "pkg", [".", "-t", pkg_target, "-o", "example"])
 
 def build_server_develop():
   server_dir = base.get_script_dir() + "/../../server"
-  base.cmd_in_dir(server_dir, "npm", ["install"])
+  base.cmd_in_dir(server_dir, "npm", [
+                  "install", "--registry=https://registry.npm.taobao.org"])
   base.cmd_in_dir(server_dir, "grunt", ["develop", "-v"] + base.server_addons_param())

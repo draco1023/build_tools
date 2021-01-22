@@ -55,9 +55,11 @@ def install_deps():
     base.download("https://deb.nodesource.com/setup_10.x", "./node_js_setup_10.x")
     base.cmd("sudo", ["bash", "./node_js_setup_10.x"])
     base.cmd("sudo", ["apt-get", "install", "-y", "nodejs"])
-    base.cmd("sudo", ["npm", "install", "-g", "npm"])
-    base.cmd("sudo", ["npm", "install", "-g", "grunt-cli"])
-    base.cmd("sudo", ["npm", "install", "-g", "pkg"])
+    base.cmd("sudo", ["npm", "install", "-g", "npm",
+                      "--registry=https://registry.npm.taobao.org"])
+    base.cmd("sudo", ["npm", "install", "-g", "grunt-cli", "--registry=https://registry.npm.taobao.org"])
+    base.cmd("sudo", ["npm", "install", "-g", "pkg",
+                      "--registry=https://registry.npm.taobao.org"])
 
   # java
   base.cmd("sudo", ["apt-get", "-y", "install", "software-properties-common"])
@@ -71,7 +73,7 @@ def install_deps():
 def install_qt():
   # qt
   if not base.is_file("./qt_source_5.9.9.tar.xz"):
-    base.download("http://download.qt.io/official_releases/qt/5.9/5.9.9/single/qt-everywhere-opensource-src-5.9.9.tar.xz", "./qt_source_5.9.9.tar.xz")
+    base.download("http://mirrors.tuna.tsinghua.edu.cn/qt/official_releases/qt/5.9/5.9.9/single/qt-everywhere-opensource-src-5.9.9.tar.xz", "./qt_source_5.9.9.tar.xz")
 
   if not base.is_dir("./qt-everywhere-opensource-src-5.9.9"):
     base.cmd("tar", ["-xf", "./qt_source_5.9.9.tar.xz"])
@@ -138,7 +140,8 @@ print("---------------------------------------------")
 
 modules = " ".join(array_modules)
 if "" == modules:
-  modules = "desktop builder server"
+  # modules = "desktop builder server"
+  modules = "core"
 
 print("---------------------------------------------")
 print("build modules: " + modules)

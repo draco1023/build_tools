@@ -68,10 +68,10 @@ def make():
 
 # JS build
 def _run_npm(directory):
-  return base.cmd_in_dir(directory, "npm", ["install"])
+  return base.cmd_in_dir(directory, "npm", ["install", "--registry=https://registry.npm.taobao.org"])
 
 def _run_npm_cli(directory):
-  return base.cmd_in_dir(directory, "npm", ["install", "-g", "grunt-cli"])
+  return base.cmd_in_dir(directory, "npm", ["install", "-g", "grunt-cli", "--registry=https://registry.npm.taobao.org"])
 
 def _run_grunt(directory, params=[]):
   return base.cmd_in_dir(directory, "grunt", params)
