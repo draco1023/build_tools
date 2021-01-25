@@ -61,7 +61,7 @@ def make():
 
   if not base.is_dir("boost_1_72_0"):
     base.cmd("git", ["clone", "--recursive", "--depth=1",
-                     "https://github.com/boostorg/boost.git", "boost_1_72_0", "-b" "boost-1.72.0"])
+                     "https://gitclone.com/github.com/boostorg/boost.git", "boost_1_72_0", "-b" "boost-1.72.0"])
 
   os.chdir("boost_1_72_0")
 

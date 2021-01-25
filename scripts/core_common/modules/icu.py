@@ -21,7 +21,7 @@ def make():
   icu_minor = "2"
 
   if not base.is_dir("icu"):
-    base.cmd("svn", ["export", "https://github.com/unicode-org/icu/tags/release-" +
+    base.cmd("svn", ["export", "https://gitclone.com/github.com/unicode-org/icu/tags/release-" +
                      icu_major + "-" + icu_minor + "/icu4c", "./icu", "--non-interactive", "--trust-server-cert"])
 
   if ("windows" == base.host_platform()):
