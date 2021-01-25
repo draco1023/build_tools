@@ -77,7 +77,7 @@ def make():
   os.chdir(current_dir)
 
   if not base.is_dir("icu"):
-    base.cmd("svn", ["export", "https://gitclone.com/github.com/unicode-org/icu/tags/release-" +
+    base.cmd("svn", ["export", "https://hub.fastgit.org/unicode-org/icu/tags/release-" +
                      icu_major + "-" + icu_minor + "/icu4c", "./icu", "--non-interactive", "--trust-server-cert"])
     if ("linux" == base.host_platform()):
       base.replaceInFile(current_dir + "/icu/source/i18n/digitlst.cpp", "xlocale", "locale")
