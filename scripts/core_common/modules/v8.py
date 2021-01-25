@@ -83,7 +83,8 @@ def make():
     clean()
 
   if not base.is_dir("depot_tools"):
-    base.cmd("git", ["clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git"])
+    base.cmd(
+        "git", ["clone", "http://120.92.49.206:3232/chromiumsrc/depot_tools.git"])
     if ("windows" == base.host_platform()):
       # hack for 32 bit system!!!
       if base.is_file("depot_tools/cipd.ps1"):
@@ -209,7 +210,8 @@ def make_xp():
     clean()
 
   if not base.is_dir("depot_tools"):
-    base.cmd("git", ["clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git"])
+    base.cmd(
+        "git", ["clone", "http://120.92.49.206:3232/chromiumsrc/depot_tools.git"])
     if ("windows" == base.host_platform()):
       # hack for 32 bit system!!!
       if base.is_file("depot_tools/cipd.ps1"):
